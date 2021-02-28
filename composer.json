@@ -20,7 +20,7 @@
     }    
   ],
   "require": {
-    "arcanedev/log-viewer": "dev-master",
+    "arcanedev/log-viewer": " ^7.x",
     "orchid/blade-icons": "dev-master"
   },
   "autoload": {
