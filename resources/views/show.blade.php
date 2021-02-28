@@ -1,6 +1,6 @@
 @extends('platform::dashboard')
 
-@section('title','Log View')
+@section('title','Log Viewer')
 @section('description',  $log->getPath() )
 
 @section('content')
