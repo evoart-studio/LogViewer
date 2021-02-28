@@ -1,5 +1,5 @@
 {
-  "name": "orchidcommunity/log-viewer",
+  "name": "evoart-studio/log-viewer",
   "description": "Orchid Log Viewer.",
   "keywords": ["framework", "laravel", "orchid", "platform", "orchid-package", "evoart-studio"],
   "type": "library",
