@@ -2,7 +2,7 @@
 
 Route::group([
     'middleware' => config('platform.middleware.private'),
-    'prefix'     => \Orchid\Platform\Kernel\Dashboard::prefix('/systems'),
+    'prefix'     => \Orchid\Platform\Dashboard::prefix('/systems'),
     'namespace'  => 'Orchid\LogViewer',
 ],
     function (\Illuminate\Routing\Router $router) {
