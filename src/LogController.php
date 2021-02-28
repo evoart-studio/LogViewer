@@ -35,7 +35,7 @@ class LogController extends Controller
      */
     public function __construct(Log $log)
     {
-        $this->checkPermission('dashboard.systems.logs');
+        $this->checkPermission('platform.systems.logs');
         $this->log = $log;
     }
 
@@ -44,7 +44,7 @@ class LogController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      *
-     * @return \Illuminate\View\View
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
      */
     public function index(Request $request)
     {
@@ -52,7 +52,7 @@ class LogController extends Controller
         $headers = $stats->header();
         $rows = $this->paginate($stats->rows(), $request);
 
-        return view('orchid/logs::logs', compact('headers', 'rows', 'footer'));
+        return view('orchid/logs::logs', compact('headers', 'rows'));
     }
 
     /**
