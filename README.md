@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://orchid.software/img/cms/5.png" width="250">
+<img src="https://raw.githubusercontent.com/orchidsoftware/platform/master/.github/IMAGES/promo-full.png" width="250">
 </p>
 
 
