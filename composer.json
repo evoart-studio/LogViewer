@@ -1,7 +1,7 @@
 {
   "name": "orchidcommunity/log-viewer",
   "description": "Orchid Log Viewer.",
-  "keywords": ["framework", "laravel", "orchid", "platform", "orchid-package"],
+  "keywords": ["framework", "laravel", "orchid", "platform", "orchid-package", "evoart-studio"],
   "type": "library",
   "license": "MIT",
   "homepage": "http://orchid.software",
@@ -13,11 +13,15 @@
     {
       "name": "Alexandr Chernyaev",
       "email": "bliz48rus@gmail.com"
-    }
+    },
+    {
+      "name": "kild",
+      "email": "support@evoart.studio"
+    }    
   ],
   "require": {
-    "php": ">=7.0",
-    "arcanedev/log-viewer": "^4.4"
+    "arcanedev/log-viewer": "dev-master",
+    "orchid/blade-icons": "dev-master"
   },
   "autoload": {
     "psr-4": {
@@ -25,9 +29,6 @@
     }
   },
   "extra": {
-    "orchid": {
-      "image": "https://orchid.software/img/cms/5.png"
-    },
     "laravel": {
       "providers": [
         "Orchid\\LogViewer\\LogViewerServiceProvider"
