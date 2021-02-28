@@ -2,50 +2,39 @@
 
 namespace Orchid\LogViewer;
 
+use Orchid\LogViewer\MenuComposer;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
-use Orchid\Platform\Kernel\Dashboard;
+use Orchid\Platform\Dashboard;
+use Orchid\Platform\ItemMenu;
+use Orchid\Platform\ItemPermission;
+use Orchid\Platform\Menu;
 
-class LogViewerServiceProvider extends ServiceProvider
+class LogViewServiceProvider extends ServiceProvider
 {
 
     /**
      * Boot the service provider.
      */
-    public function boot()
+    public function boot(Dashboard $dashboard)
     {
+        $this->dashboard = $dashboard;
+
         $this->loadRoutesFrom(realpath(__DIR__ . '/../routes/route.php'));
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'orchid/logs');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'evoart/logs');
 
-        $dashboard = $this->app->make(Dashboard::class);
+        View::composer('platform::systems', MenuComposer::class);
 
-        $dashboard->permission->registerPermissions([
-            'Systems' => [
-                [
-                    'slug'        => 'dashboard.systems.logs',
-                    'description' => 'Log Viewer',
-                ],
-            ],
-        ]);
-
-        View::composer('dashboard::layouts.dashboard', function () use ($dashboard) {
-
-            $dashboard->menu->add('Systems', [
-                'slug'       => 'logs',
-                'icon'       => 'fa fa-bug',
-                'route'      => route('dashboard.systems.logs.index'),
-                'label'      => 'Log Viewer',
-                'groupname'  => 'Errors',
-                'childs'     => false,
-                'divider'    => false,
-                'permission' => 'dashboard.systems.logs',
-                'sort'       => 500,
-            ]);
-
+        $this->app->booted(function () {
+            $this->dashboard->registerPermissions($this->registerPermissions());
         });
 
     }
-
+    protected function registerPermissions(): ItemPermission
+    {
+        return ItemPermission::group(__('Systems'))
+            ->addPermission('platform.systems.logs', __('Log View'));
+    }
     /**
      * Get the services provided by the provider.
      *
