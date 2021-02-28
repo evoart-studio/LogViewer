@@ -21,7 +21,7 @@
   ],
   "require": {
     "arcanedev/log-viewer": "dev-master",
-    "orchid/blade-icons": "dev-master"
+    "orchid/blade-icons": "^1.2"
   },
   "autoload": {
     "psr-4": {
