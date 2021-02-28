@@ -10,7 +10,7 @@ use Orchid\Platform\ItemMenu;
 use Orchid\Platform\ItemPermission;
 use Orchid\Platform\Menu;
 
-class LogViewServiceProvider extends ServiceProvider
+class LogViewerServiceProvider extends ServiceProvider
 {
 
     /**
