@@ -21,7 +21,7 @@ class LogViewerServiceProvider extends ServiceProvider
         $this->dashboard = $dashboard;
 
         $this->loadRoutesFrom(realpath(__DIR__ . '/../routes/route.php'));
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'evoart/logs');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'orchid/logs');
 
         View::composer('platform::systems', MenuComposer::class);
 
